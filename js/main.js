@@ -10,9 +10,9 @@ const getRandomNumber = function(min, max) {
 
 getRandomNumber(0, 25);
 
-const maxLenght = function(str, maxStrLenght) {
-  const resultMaxLenght = str.lenght <= MAX_SYMBOL;
-  // console.log(resultMaxLenght);
+const maxLenght = function(line, MAX_SYMBOL) {
+  const resultMaxLenght = line.lenght <= MAX_SYMBOL;
+  // console.log(resultMaxLenght); str, maxStrLenght
   return resultMaxLenght;
 };
 
