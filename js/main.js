@@ -1,24 +1,7 @@
-const MAX_SYMBOL = 140;
-const line = 'aaaaa';
+// const MAX_SYMBOL = 140;
+// const line = 'aaaaa';
 
-const getRandomNumber = function(min, max) {
-  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-  const resultRandomNumber = max > min ? randomNumber : Number(false);
-  // console.log(resultRandomNumber);
-  return resultRandomNumber;
-};
-
-getRandomNumber(0, 25);
-
-const maxLenght = function(str, maxStrLenght) {
-  const resultMaxLenght = str.lenght <= maxStrLenght;
-  // console.log(resultMaxLenght);
-  return resultMaxLenght;
-};
-
-maxLenght(line, MAX_SYMBOL);
-
-const MASSADE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -27,7 +10,7 @@ const MASSADE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const NAME = [
+const NAMES = [
   'Георгий',
   'Мария',
   'Виктория',
@@ -55,25 +38,86 @@ const NAME = [
   'Вероника',
 ];
 
-const getRandomNumberAvatar = getRandomNumber(1, 6);
+const DESCRIPTION = [
+  'фото 1',
+  'фото 2',
+  'фото 3',
+  'фото 4',
+  'фото 5',
+  'фото 6',
+  'фото 7',
+  'фото 8',
+  'фото 9',
+  'фото 10',
+  'фото 11',
+  'фото 12',
+  'фото 13',
+  'фото 14',
+  'фото 15',
+  'фото 16',
+  'фото 17',
+  'фото 18',
+  'фото 19',
+  'фото 20',
+  'фото 21',
+  'фото 22',
+  'фото 23',
+  'фото 24',
+  'фото 25',
+];
 
-const comment = {
-  id: getRandomNumber(1, 500),
-  avatar: 'img/avatar-getRandomNumberAvatar.svg',
-  massage: getRandomNumber(MASSADE),
-  name: getRandomNumber(NAME),
-};
+function getRandomNumber (min, max) {
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  const resultRandomNumber = max > min ? randomNumber : Number(false);
+  return resultRandomNumber;
+}
 
-const newComment = comment;
+// function maxLenght (str, maxStrLenght) {
+//   const resultMaxLenght = str.lenght <= maxStrLenght;
+//   return resultMaxLenght;
+// };
 
-const photo = {
-  id: getRandomNumber(1, 25),
-  url: 'photos/id.jpg',
-  description: '',
-  likes: getRandomNumber(15, 200),
-  comments: Array(comment, newComment),
-};
+function getComment (index) {
+  const comment = {
+    id: index,
+    avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
+    message: MESSAGES[getRandomNumber(0, MESSAGES.length)],
+    name: NAMES[getRandomNumber(0, NAMES.length)],
+  };
+  return comment;
+}
 
-const newPhoto = photo;
+// console.log(getComment());
 
-const photos = Array(photo, newPhoto);
+function getCommentsArray () {
+  const comments = [];
+  for (let i=0; i<getRandomNumber(0, 10); i++) {
+    comments.push(getComment(i));
+  }
+  return comments;
+}
+
+function getPhoto (index) {
+  const photo = {
+    id: Number(index),
+    url: `photos/${index}.jpg`,
+    description: DESCRIPTION.toString[index],
+    likes: getRandomNumber(15, 200),
+    comments: getCommentsArray(),
+  };
+  return photo;
+}
+
+// console.log(getPhoto());
+
+function getPhotosArray () {
+  const photos = [];
+  for (let i=0; i<25; i++) {
+    photos.push(getPhoto(i));
+  }
+  return photos;
+}
+
+// console.log(getPhotosArray());
+
+getPhotosArray();
