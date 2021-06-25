@@ -38,7 +38,7 @@ const NAMES = [
   'Вероника',
 ];
 
-const DESCRIPTION = [
+const DESCRIPTIONS = [
   'фото 1',
   'фото 2',
   'фото 3',
@@ -101,7 +101,7 @@ function getPhoto (index) {
   const photo = {
     id: Number(index),
     url: `photos/${index}.jpg`,
-    description: DESCRIPTION.toString[index],
+    description: DESCRIPTIONS.toString[index],
     likes: getRandomNumber(15, 200),
     comments: getCommentsArray(),
   };
