@@ -1,2 +1,2 @@
-import './universal.js';
-import './photos.js';
+import './utils.js';
+import './mock-photos.js';
