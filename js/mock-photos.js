@@ -108,6 +108,5 @@ function getPhotosArray () {
 
 // console.log(getPhotosArray());
 
-getPhotosArray();
 
-export {getCommentsArray, getPhoto};
+export {getCommentsArray, getPhoto, getPhotosArray};

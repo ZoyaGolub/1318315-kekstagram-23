@@ -7,9 +7,9 @@ function getRandomNumber (min, max) {
   return resultRandomNumber;
 }
 
-// function maxLenght (str, maxStrLenght) {
-//   const resultMaxLenght = str.lenght <= maxStrLenght;
-//   return resultMaxLenght;
+// function maxLength (str, maxStrLength) {
+//   const resultMaxLength = str.length <= maxStrLength;
+//   return resultMaxLength;
 // };
 
 export {getRandomNumber};
