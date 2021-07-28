@@ -1,23 +1,30 @@
-import {getCommentsArray} from './mock-photos.js';
-//import {getPhoto} from './mock-photos.js';
 import {getPhotosArray} from './mock-photos.js';
 
+const photosData = getPhotosArray();
 const pictures = document.querySelector('.pictures');
-const templatePicture = document.querySelector('#picture');
-// const picture = templatePicture.querySelector('.picture');
-const fragment = document.createDocumentFragment();
+// const templatePicture = document.querySelector('#picture').content.querySelector('.picture');
+const templatePicture = document.querySelector('#picture').content;
+const picture = templatePicture.querySelector('.picture');
 
-function renderingPictures () {
-  const photosData = getPhotosArray();
-  const newPhoto = templatePicture.cloneNode(true);
-  for (let i = 0; i < photosData.length; i++) {
-    newPhoto.querySelector('.picture__img').setAttribute('src', getPhotosArray(i).url);
-    newPhoto.querySelector('.picture__likes').textContent = getPhotosArray(i).likes;
-    newPhoto.querySelector('.picture__comments').textContent = getCommentsArray(i);
-  }
-  return fragment.push(newPhoto);
+function getPictureTemplate (object) {
+  console.log(object);
+  const newPhotoElement = picture.cloneNode(true);
+  newPhotoElement.querySelector('.picture__img').src = object.url;
+  newPhotoElement.querySelector('.picture__likes').textContent = object.likes;
+  newPhotoElement.querySelector('.picture__comments').textContent = object.comments.length;
+  return newPhotoElement;
 }
 
-renderingPictures();
+function renderingPictures (photosArray) {
+  console.log(photosArray);
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < photosArray.length; i++) {
+    const newPictureTemplate = getPictureTemplate(photosArray[i]);
+    fragment.appendChild(newPictureTemplate);
+  }
+  pictures.appendChild(fragment);
+}
 
-pictures.appendChild(fragment);
+renderingPictures(photosData);
+
+//console.log(photosData);

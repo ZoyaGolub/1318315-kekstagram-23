@@ -100,7 +100,7 @@ function getPhoto (index) {
 
 function getPhotosArray () {
   const photos = [];
-  for (let i=0; i<25; i++) {
+  for (let i=1; i<25; i++) {
     photos.push(getPhoto(i));
   }
   return photos;
@@ -109,4 +109,4 @@ function getPhotosArray () {
 // console.log(getPhotosArray());
 
 
-export {getCommentsArray, getPhoto, getPhotosArray};
+export {getPhotosArray};
