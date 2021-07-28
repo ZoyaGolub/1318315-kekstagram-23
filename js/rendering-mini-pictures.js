@@ -7,7 +7,7 @@ const templatePicture = document.querySelector('#picture').content;
 const picture = templatePicture.querySelector('.picture');
 
 function getPictureTemplate (object) {
-  console.log(object);
+  // console.log(object);
   const newPhotoElement = picture.cloneNode(true);
   newPhotoElement.querySelector('.picture__img').src = object.url;
   newPhotoElement.querySelector('.picture__likes').textContent = object.likes;
@@ -16,7 +16,7 @@ function getPictureTemplate (object) {
 }
 
 function renderingPictures (photosArray) {
-  console.log(photosArray);
+  // console.log(photosArray);
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < photosArray.length; i++) {
     const newPictureTemplate = getPictureTemplate(photosArray[i]);
